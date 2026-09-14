@@ -1,0 +1,307 @@
+import {
+  UserProfile,
+  FamilyMember,
+  RoutineQuestion,
+  AudioStory,
+  QuizQuestion,
+  ForgottenTopicItem,
+  QuizSession,
+} from '../types';
+
+export const INITIAL_USER: UserProfile = {
+  id: 'usr_eleanor_01',
+  name: 'Eleanor Vance',
+  age: 74,
+  preferredLanguage: 'English',
+  avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=256&q=80',
+  role: 'senior_user',
+  importantNotes: 'Mild age-related memory recall focus. Prefers calm pacing, positive visual encouragement, and large readable text.',
+  consentGiven: true,
+  emergencyContact: 'Son: Rahul Vance (555-019-2834)',
+  createdAt: '2026-08-01',
+};
+
+export const INITIAL_FAMILY: FamilyMember[] = [
+  {
+    id: 'fam_rahul',
+    name: 'Rahul Vance',
+    relationship: 'Son',
+    birthday: 'April 14, 1982',
+    importantDates: 'Sunday family dinner at 5:00 PM; Annual family beach trip in July',
+    importantEvents: 'Promoted to Senior Architect last month; Visited last Sunday',
+    personalPreferences: 'Prefers cardamom tea, loves gardening tools and acoustic jazz music',
+    sharedMemories: 'Built the wooden backyard birdhouse together in the summer of 2019.',
+    avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=256&q=80',
+    phone: '555-019-2834',
+    permissions: {
+      canEditProfile: true,
+      canAddQuizPrompts: true,
+      canViewReports: true,
+    },
+  },
+  {
+    id: 'fam_maya',
+    name: 'Maya Vance',
+    relationship: 'Granddaughter',
+    birthday: 'September 28, 2005',
+    importantDates: 'College graduation next spring; Birthday celebration in late September',
+    importantEvents: 'Studying Botany & Plant Sciences at the State University',
+    personalPreferences: 'Enjoys lemon shortbread cookies, botanical drawing, lavender scent',
+    sharedMemories: 'Baked lemon cookies together last Saturday using fresh terrace lemons.',
+    avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=256&q=80',
+    phone: '555-019-5567',
+    permissions: {
+      canEditProfile: false,
+      canAddQuizPrompts: true,
+      canViewReports: true,
+    },
+  },
+  {
+    id: 'fam_clara',
+    name: 'Clara Reynolds',
+    relationship: 'Sister',
+    birthday: 'January 19, 1949',
+    importantDates: 'Tuesday evening phone calls at 6:30 PM',
+    importantEvents: 'Celebrated golden anniversary in Cape Cod last autumn',
+    personalPreferences: 'Enjoys historical biographies, knitwear, and mint tea',
+    sharedMemories: 'Childhood summer vacations at Lake George cabin collecting pinecones.',
+    avatar: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?auto=format&fit=crop&w=256&q=80',
+    phone: '555-019-8921',
+    permissions: {
+      canEditProfile: false,
+      canAddQuizPrompts: false,
+      canViewReports: true,
+    },
+  },
+];
+
+export const INITIAL_ROUTINE: RoutineQuestion[] = [
+  {
+    id: 'rt_wake',
+    key: 'wake_time',
+    question: 'What time do you usually wake up?',
+    answer: '7:30 AM every morning with natural sunlight',
+    category: 'morning',
+    lastUpdated: '2026-09-10',
+    addedBy: 'Eleanor Vance',
+  },
+  {
+    id: 'rt_day',
+    key: 'day_activities',
+    question: 'What activities do you normally do during the day?',
+    answer: 'Morning walk in the garden, water the hydrangeas, listening to classical radio, and reading',
+    category: 'daytime',
+    lastUpdated: '2026-09-11',
+    addedBy: 'Eleanor Vance',
+  },
+  {
+    id: 'rt_fav',
+    key: 'fav_activities',
+    question: 'What are your favorite activities?',
+    answer: 'Watercolour painting of botanical leaves, baking lemon shortbread, and crossword puzzles',
+    category: 'favorite',
+    lastUpdated: '2026-09-12',
+    addedBy: 'Eleanor Vance',
+  },
+  {
+    id: 'rt_places',
+    key: 'frequent_places',
+    question: 'Which places do you frequently visit?',
+    answer: 'Oak Street Community Garden, St. Luke Public Library, and Corner Maple Bakery',
+    category: 'places',
+    lastUpdated: '2026-09-09',
+    addedBy: 'Eleanor Vance',
+  },
+  {
+    id: 'rt_habits',
+    key: 'daily_habits',
+    question: 'What important habits or routines do you follow?',
+    answer: 'Taking blood pressure medication at 8:00 AM with warm oatmeal, and drinking chamomile tea at 8:30 PM',
+    category: 'habits',
+    lastUpdated: '2026-09-13',
+    addedBy: 'Eleanor Vance',
+  },
+];
+
+export const INITIAL_AUDIO_STORIES: AudioStory[] = [
+  {
+    id: 'story_01',
+    title: 'Saturday Baking with Maya',
+    date: '2026-09-12',
+    timestamp: 'Saturday at 3:15 PM',
+    durationSeconds: 42,
+    transcript:
+      'Maya came over on Saturday afternoon and we baked delicious lemon shortbread cookies together. She brought fresh lemons from her terrace, and we brewed some chamomile tea while the oven was warm. We laughed about the time we spilled powdered sugar.',
+    aiAnalysis: {
+      summary: 'Baked fresh lemon shortbread cookies with granddaughter Maya and enjoyed warm chamomile tea.',
+      entities: {
+        people: ['Granddaughter Maya'],
+        places: ['Kitchen at home', "Maya's terrace garden"],
+        activities: ['Baking lemon cookies', 'Brewing chamomile tea', 'Reminiscing about kitchen memories'],
+        objects: ['Fresh lemons', 'Shortbread dough', 'Powdered sugar', 'Chamomile tea'],
+        sentiment: 'Warm, joyful, and affectionate',
+      },
+      extractedFacts: [
+        'Maya brought fresh lemons from her terrace',
+        'Baked lemon shortbread cookies on Saturday',
+        'Drank chamomile tea together',
+      ],
+      suggestedRecallQuestions: [
+        {
+          question: 'What sweet treat did you and Maya bake on Saturday?',
+          expectedAnswer: 'Lemon shortbread cookies',
+          type: 'multiple_choice',
+          options: ['Lemon shortbread cookies', 'Chocolate chip brownies', 'Apple cinnamon pie', 'Blueberry muffins'],
+        },
+        {
+          question: 'Who brought the fresh terrace lemons for baking?',
+          expectedAnswer: 'Granddaughter Maya',
+          type: 'recall',
+          options: ['Granddaughter Maya', 'Sister Clara', 'Neighbor Martha', 'Mail carrier'],
+        },
+      ],
+    },
+  },
+  {
+    id: 'story_02',
+    title: 'Morning Walk at Oak Garden with Rahul',
+    date: '2026-09-10',
+    timestamp: 'Thursday at 10:45 AM',
+    durationSeconds: 38,
+    transcript:
+      'My son Rahul visited this morning. We took a slow, scenic stroll through Oak Street Community Garden. The blue hydrangeas were in full bloom, and Rahul pointed out a pair of goldfinches nesting by the wooden gazebo.',
+    aiAnalysis: {
+      summary: 'Strolled through Oak Street Community Garden with son Rahul and spotted blue hydrangeas and nesting goldfinches.',
+      entities: {
+        people: ['Son Rahul'],
+        places: ['Oak Street Community Garden', 'Wooden gazebo'],
+        activities: ['Strolling in the garden', 'Bird watching'],
+        objects: ['Blue hydrangeas', 'Goldfinches'],
+        sentiment: 'Peaceful and tranquil',
+      },
+      extractedFacts: [
+        'Visited Oak Street Community Garden with son Rahul',
+        'Saw blue hydrangeas in full bloom',
+        'Observed nesting goldfinches near the wooden gazebo',
+      ],
+      suggestedRecallQuestions: [
+        {
+          question: 'Which birds did Rahul point out near the wooden gazebo at Oak Garden?',
+          expectedAnswer: 'Goldfinches',
+          type: 'multiple_choice',
+          options: ['Goldfinches', 'Blue jays', 'Sparrows', 'Cardinals'],
+        },
+        {
+          question: 'Which family member joined you for a garden stroll on Thursday morning?',
+          expectedAnswer: 'Son Rahul',
+          type: 'recall',
+          options: ['Son Rahul', 'Sister Clara', 'Dr. Adams', 'Cousin Edward'],
+        },
+      ],
+    },
+  },
+];
+
+export const INITIAL_FORGOTTEN_TOPICS: ForgottenTopicItem[] = [
+  {
+    id: 'fg_med_time',
+    topic: 'Blood pressure medication scheduled morning time',
+    category: 'Daily Routine',
+    correctAnswer: '8:00 AM with warm oatmeal',
+    missCount: 2,
+    lastMissedDate: '2026-09-12',
+    status: 'needs_reinforcement',
+  },
+  {
+    id: 'fg_maya_study',
+    topic: "Maya's college area of study",
+    category: 'Family & Friends',
+    correctAnswer: 'Botany & Plant Sciences',
+    missCount: 1,
+    lastMissedDate: '2026-09-11',
+    status: 'improving',
+  },
+  {
+    id: 'fg_sister_call',
+    topic: 'Weekly phone call evening with Sister Clara',
+    category: 'Family & Friends',
+    correctAnswer: 'Tuesday evenings at 6:30 PM',
+    missCount: 1,
+    lastMissedDate: '2026-09-08',
+    status: 'improving',
+  },
+];
+
+export const INITIAL_WEEKLY_PROGRESS = [
+  { day: 'Mon', date: 'Sep 8', score: 80, completed: true },
+  { day: 'Tue', date: 'Sep 9', score: 85, completed: true },
+  { day: 'Wed', date: 'Sep 10', score: 80, completed: true },
+  { day: 'Thu', date: 'Sep 11', score: 90, completed: true },
+  { day: 'Fri', date: 'Sep 12', score: 88, completed: true },
+  { day: 'Sat', date: 'Sep 13', score: 92, completed: true },
+  { day: 'Sun', date: 'Sep 14', score: 95, completed: true },
+];
+
+export const INITIAL_TODAYS_QUIZ: QuizQuestion[] = [
+  {
+    id: 'q_today_1',
+    type: 'multiple_choice',
+    category: 'Reinforcement Recall',
+    question: 'Around what time do you take your blood pressure medication with breakfast?',
+    options: ['8:00 AM', '10:30 AM', '1:00 PM', '6:00 PM'],
+    correctAnswer: '8:00 AM',
+    explanation: 'You take your medication at 8:00 AM right after your morning oatmeal.',
+    memoryFactSource: 'Daily routine habit (Revisiting prioritized recall)',
+  },
+  {
+    id: 'q_today_2',
+    type: 'recall',
+    category: 'Audio Memories',
+    question: 'In your recent audio story with granddaughter Maya, what treat did you bake together?',
+    options: ['Lemon shortbread cookies', 'Chocolate brownies', 'Banana bread', 'Carrot cupcakes'],
+    correctAnswer: 'Lemon shortbread cookies',
+    explanation: 'Maya brought fresh lemons from her terrace to make shortbread cookies with you.',
+    memoryFactSource: 'Audio story: Saturday Baking with Maya',
+    imageUrl: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80',
+    familyMemberId: 'fam_maya',
+    familyMemberName: 'Maya Vance',
+  },
+  {
+    id: 'q_today_3',
+    type: 'true_false',
+    category: 'Family & Friends',
+    question: 'True or False: Your son Rahul Vance visits for Sunday family dinner at 5:00 PM.',
+    options: ['True', 'False'],
+    correctAnswer: 'True',
+    explanation: 'Rahul cherishes your Sunday family dinners together every week.',
+    memoryFactSource: 'Family circle: Rahul Vance',
+    imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80',
+    familyMemberId: 'fam_rahul',
+    familyMemberName: 'Rahul Vance',
+  },
+  {
+    id: 'q_today_4',
+    type: 'sequence',
+    category: 'Chronology',
+    question: 'Arrange your typical morning activities in the correct order:',
+    sequenceItems: [
+      'Wake up at 7:30 AM with natural light',
+      'Have warm oatmeal and blood pressure medication at 8:00 AM',
+      'Water the balcony hydrangeas and tune into classical radio',
+    ],
+    correctAnswer:
+      'Wake up at 7:30 AM with natural light -> Have warm oatmeal and blood pressure medication at 8:00 AM -> Water the balcony hydrangeas and tune into classical radio',
+    explanation: 'Sequencing strengthens the brain’s frontal lobe and executive coordination.',
+    memoryFactSource: 'Daily routine morning timeline',
+  },
+  {
+    id: 'q_today_5',
+    type: 'short_answer',
+    category: 'Family & Friends',
+    question: 'What university field of science is your granddaughter Maya studying?',
+    options: ['Botany', 'Chemistry', 'Physics', 'History'],
+    correctAnswer: 'Botany',
+    explanation: 'Maya is passionate about Botany and Plant Sciences, and brought you fresh lemons!',
+    memoryFactSource: 'Family circle: Maya Vance',
+  },
+];

@@ -1,0 +1,6 @@
+{
+  "name": "MEMONEST",
+  "description": "MemoryMate AI – Personalized memory and cognitive engagement platform with custom photo-based quiz builder, daily routine recall exercises, and adaptive cognitive tracking.",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
